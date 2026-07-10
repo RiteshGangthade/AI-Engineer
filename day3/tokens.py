@@ -28,8 +28,8 @@ message={
 
 messages=[message1,message]
 
-response=client.chat.completions.create(model=model,messages=messages,temperature=2)
+response=client.chat.completions.create(model=model,messages=messages,temperature=2,max_tokens=200)
 print(response.choices[0].message.content)
 
 usage=response.usage
-print(f"Token cosumed by prompt are {usage.prompt_tokens} and tokens consumed by resposne are {usage.completion_tokens}")
+print(f"Token cosumed by prompt are {usage.prompt_tokens} and tokens consumed by resposne are {usage.completion_tokens} Fininsh reason {response.choices[0].finish_reason} ")
